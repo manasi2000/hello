@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/aos.css">
+     <link rel="stylesheet" href="css/owl.carousel.min.css">
+     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="css/Main_style.css">
+
+</head>
+<body>
+
+     <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+               <i class="fa fa-ravelry" aria-hidden="true"></i>
+             <!-- <i class="fa fa-microphone"></i> -->
+               <nbsp>MeetCummins</nbsp>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link smoothScroll">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#project" class="nav-link smoothScroll">Our features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/blog" class="nav-link">Blog</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a href="Quiz_Demo.html" class="nav-link ">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="Hangman.html" class="nav-link ">Hangman</a>
+                     </li>
+                     <li class="nav-item">
+                         <a href="project-detail.html" class="nav-link ">Podcast</a>
+                     </li> -->
+
+                    <li class="nav-item">
+                         <a href="/contact" class="nav-link ">Contact</a>
+
+                    </li>
+                    <li class="nav-item">
+                         <a href="/currentstudentlogin" class="nav-link contact">Log In</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <div class="mdl-grid mdl-card maximize-width mdl-shadow--2dp mdl-grid--no-spacing">
+    <!-- ngIf: dynamic_data.heading --><div class="mdl-cell mdl-cell--5-col mdl-cell--12-col-tablet center-alignment ng-scope" style="margin: auto;" ng-if="dynamic_data.heading">
+      <div class="mdl-grid mdl-grid--no-spacing" style="padding: 65px 8px;" align="center">
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet" style="margin: auto;">
+          <img style="border-radius:4px;max-width:110%" src="logo.png" align="center">
+        </div>
+        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
+          
+          
+        </div>
+      </div>
+    </div><!-- end ngIf: dynamic_data.heading -->
+    <div class="mdl-cell mdl-cell--12-col-tablet login-top-div login-signup-padding flexbox mdl-cell--7-col login-border" ng-class="{'mdl-cell--12-col': !dynamic_data.heading, 'mdl-cell--7-col login-border': dynamic_data.heading}">
+      <div class="adjust-signup-main">
+        <div ng-show="$root.isCordova &amp;&amp; socialButtonProcess" class="full-page-loading ng-scope ng-hide">
+<div class="asThemeWait">
+  <div class="themeDot1"></div>
+  <div class="themeDot2"></div>
+</div>
+</div>
+<div ng-hide="showSignUpSection || showLoginSection || customMessageScreen || showEnterOTP" id="signup_load_check" class="ng-scope">
+<div class="center-alignment">
+  <div class="mdl-card__title-text left-alignment inline-block connect-width-adjust" ng-style="{'margin-bottom': tconfig.signupSubTitle ? '' : '24px'}" style="margin-bottom: 24px;">
+    
+  
+    <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate ng-hide is-upgraded" style="width: 100%;top:46px;" ng-show="verifyingEmail" data-upgraded=",MaterialProgress"><div class="progressbar bar bar1" style="width: 0%;"></div><div class="bufferbar bar bar2" style="width: 100%;"></div><div class="auxbar bar bar3" style="width: 0%;"></div></div>
+  </form>
+  </div>
+</div>
+</div>
+
+
+  
+  <div class="container">
+  <form action="" id="SignUp" >
+    <div class="row">
+      <h2 style="text-align:center"><b>Sign Up/Login with Social Media or Email ID</b></h2>
+     
+
+      <div class="col">
+        <a href="https://www.facebook.com/" class="fb btn" >
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+        </a>
+        <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D" class="twitter btn">
+          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+        </a>
+        <a href="https://mail.google.com/mail/" class="google btn">
+          <i class="fa fa-google fa-fw"></i> Login with Google+
+        </a>
+      </div>
+
+      <div class="col">
+        <div class="hide-md-lg">
+          <p>Or sign in manually:</p>
+        </div>
+
+        <input type="text" id="uname"  placeholder="Username" required>
+        <input type="text" id="alink"  placeholder="Avatar Link" required>
+        <input type="password" id="pass"  placeholder="Password" required>
+        <input type="submit" id="signex" value="Login" >
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="bottom-container">
+  <div class="row">
+    <div class="col">
+      <a href="My Registration form/index.html" style="color:white" class="btn">Sign up</a>
+    </div>
+
+    <div class="col">
+      <a href="forgotpassword.html" link rel="stylesheet" href="sign.css" class="btn" style="color: white" >Forgot password?</a>
+      
+        
+    </div>
+  </div>
+</div>
+
+</form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+
+<script src="src/loginEx.js"></script>
+</body>
+</html>

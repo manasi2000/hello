@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/font-awesome.min.css">
+     <link rel="stylesheet" href="css/aos.css">
+     <link rel="stylesheet" href="css/owl.carousel.min.css">
+     <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="css/Main_style.css">
+
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        .frame {
+            width: 90%;
+            height: 800px;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+                Droid Sans, Helvetica Neue, sans-serif;
+            padding: 20px;
+            font-size: 14px;
+            border: none;
+        }
+
+        .warning {
+            background-color: #3859BC;
+            padding: 3px;
+            border-radius: 5px;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- MENU BAR -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+           <i class="fa fa-ravelry" aria-hidden="true"></i>
+         <!-- <i class="fa fa-microphone"></i> -->
+           <nbsp>MeetCummins</nbsp>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link smoothScroll">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#project" class="nav-link smoothScroll">Our features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/blog" class="nav-link">Blog</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="Quiz_Demo.html" class="nav-link ">Quiz</a>
+                </li>
+                <li class="nav-item">
+                     <a href="Hangman.html" class="nav-link ">Hangman</a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="project-detail.html" class="nav-link ">Podcast</a>
+                 </li> -->
+
+                <li class="nav-item">
+                     <a href="contact.html" class="nav-link ">Contact</a>
+
+                </li>
+                <li class="nav-item">
+                     <a href="loginEx.html" class="nav-link contact">Log In</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <div style="margin: 5% 8% 5% 8%">
+    <h2>Ready Player Me</h2>
+    <ul>
+        <li>Click the "Open Ready Player Me" button.</li>
+        <li>Create an avatar and click the "Done" button when you're done customizing.</li>
+        <li>After creation, this parent page receives the URL to the avatar.</li>
+        <li>The Ready Player Me window closes and the URL is displayed.</li>
+    </ul>
+
+    <input style="align-items: center; color: aliceblue; font: inherit; padding: 5px 12px 7px 12px; background-color: #3859BC; border-radius: 13px;" type="button" value="Open Ready Player Me" onClick="displayIframe()" />
+    <br>
+    <p style="margin-top: 5px;" id="avatarUrl">Avatar URL:</p>
+
+    <iframe id="frame" class="frame" allow="camera *; microphone *; clipboard-write" hidden></iframe>
+
+    <script>
+        const subdomain = 'demo'; // Replace with your custom subdomain
+        const frame = document.getElementById('frame');
+
+        frame.src = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
+
+        window.addEventListener('message', subscribe);
+        document.addEventListener('message', subscribe);
+
+        function subscribe(event) {
+            const json = parse(event);
+
+            if (json?.source !== 'readyplayerme') {
+                return;
+            }
+
+            // Susbribe to all events sent from Ready Player Me once frame is ready
+            if (json.eventName === 'v1.frame.ready') {
+                frame.contentWindow.postMessage(
+                    JSON.stringify({
+                        target: 'readyplayerme',
+                        type: 'subscribe',
+                        eventName: 'v1.**'
+                    }),
+                    '*'
+                );
+            }
+
+            // Get avatar GLB URL
+            if (json.eventName === 'v1.avatar.exported') {
+                console.log(`Avatar URL: ${json.data.url}`);
+                document.getElementById('avatarUrl').innerHTML = `Avatar URL: ${json.data.url}`;
+                document.getElementById('frame').hidden = false;
+            }
+
+            // Get user id
+            if (json.eventName === 'v1.user.set') {
+                console.log(`User with id ${json.data.id} set: ${JSON.stringify(json)}`);
+            }
+        }
+
+        function parse(event) {
+            try {
+                return JSON.parse(event.data);
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function displayIframe() {
+            document.getElementById('frame').hidden = false;
+        }
+    </script>
+    </div>
+</body>
+
+<footer class="site-footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-5 mx-lg-auto col-md-8 col-10">
+          <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">Join us into <strong>METAVERSE </strong></h1>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+          <h4 class="my-4">Contact Info</h4>
+
+          <p class="mb-1">
+            <i class="fa fa-phone mr-2 footer-icon"></i> 
+            +91 080 070 4224
+          </p>
+
+          <p>
+            <a href="#">
+              <i class="fa fa-envelope mr-2 footer-icon"></i>
+              hello@company.com
+            </a>
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="300">
+          <h4 class="my-4">METAVERSE SERVICES</h4>
+
+          <p class="mb-1">
+             <a href="#">Pricing</a>
+             <a href="#"><br>Enterprise Solution</a>
+             <!-- <a href="#"><br>Private Podcast</a>
+             <a href="#"><br>The Podcast App</a> -->
+          </p>
+        </div>
+
+        <div class="col-lg-4 mx-lg-auto text-center col-md-8 col-12" data-aos="fade-up" data-aos-delay="400">
+          <p class="copyright-text">Copyright &copy; 2022 Avalon
+          <br>
+          
+        </div>
+
+        <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
+          
+          <ul class="footer-link">
+            <li><a href="#">Stories</a></li>
+            <li><a href="#">Work with us</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+          <ul class="social-icon">
+            <li><a href="#" class="fa fa-instagram"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-facebook-square"></a></li>
+            <li><a href="#" class="fa fa-spotify"></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+
+   <!-- SCRIPTS -->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/aos.js"></script>
+   <script src="js/owl.carousel.min.js"></script>
+   <script src="js/smoothscroll.js"></script>
+   <script src="js/custom.js"></script>
+   <script src="src\app.js"></script>
+</html>
