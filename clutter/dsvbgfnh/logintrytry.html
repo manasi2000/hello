@@ -104,7 +104,7 @@
               <span class="underline"></span>
             </button>
            
-            <form id="login-form" class="form form-signup">
+            <form class="form form-signup">
               <fieldset>
                 <legend>Please, enter your email, and password to login.</legend>
                 <div class="input-block">
@@ -117,140 +117,124 @@
                   <input id="signup-password" name="password" type="password" required>
                 </div>
 
-                <!-- <div class="input-block">
+                <div class="input-block">
                   <label for="avatar-link">Link to Avatar</label>
                   <input id="avatar-link" name="avatarlink" required>
-                </div> -->
+                </div>
               </fieldset>
-              <button type="submit" id="loginBtn" class="btn-signup">Login</button>
+              <button type="submit" id="submitData" class="btn-signup">Login</button>
               <h7>New to Meetcummins? <a href="finalsignup.html">Sign Up Here!</a></h7>
             </form>
           </div>
         </div>
       </section>
-      
+
+      <!-- <script src="js\register_script.js"></script> -->
+
       <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-   
-        import {
-            getAuth,
-            createUserWithEmailAndPassword,
-            signInWithEmailAndPassword,
-            onAuthStateChanged,
-            signOut
-        } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
-        import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js';
+        import { 
+          getAuth,
+          onAuthStateChanged, 
+          signOut,
+          createUserWithEmailAndPassword,
+          signInWithEmailAndPassword,
+          connectAuthEmulator
+        } from 'https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js';
 
-
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
         const firebaseConfig = {
-          apiKey: "AIzaSyC0HSSShP242v15hEMXEwyB9Oyg7sVQqz0",
-          authDomain: "meetcumminsdb.firebaseapp.com",
-          projectId: "meetcumminsdb",
-          storageBucket: "meetcumminsdb.appspot.com",
-          messagingSenderId: "292295566000",
-          appId: "1:292295566000:web:f25eda3726695854f29175",
-          measurementId: "G-5LESNWHCEJ"
+          apiKey: "AIzaSyA1xeb5nfkACdv5ZeJbelJvA65IADXpSCI",
+          authDomain: "loginex-da8cb.firebaseapp.com",
+          databaseURL: "https://loginex-da8cb-default-rtdb.firebaseio.com",
+          projectId: "loginex-da8cb",
+          storageBucket: "loginex-da8cb.appspot.com",
+          messagingSenderId: "879847993737",
+          appId: "1:879847993737:web:f3d8afe009136bc82b3158"
         };
+        import {getDatabase, onValue, set, ref, update} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
-        // Initialize Firebase
+        //Initialize firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth();
         const database = getDatabase(app);
-        
-        loginBtn.addEventListener('click',(e) => {
 
-        //console.log('validation ' + returnval);
+        // Login using email/password
+        const loginEmailPassword = async () => {
+          const loginEmail = document.getElementById('signup-username').value;
+          console.log(loginEmail);
+          const loginPassword = document.getElementById('signup-password').value;
+          const alink = document.getElementById('avatar-link').value;
 
-            var email = document.getElementById('signup-username').value;
-            console.log(email);
-            var password = document.getElementById('signup-password').value;
-            //var alink = document.getElementById('alink').value;
+          const userId = auth.currentUser.uid;
+          console.log(userId);
 
-            //sign up user
-            // createUserWithEmailAndPassword(auth, email, password)
-            //     .then((userCredential) => {
-            //         // Signed in
-            //         //console.log("Hi");
-            //         const user = userCredential.user;
-            //         console.log(userCredential.user);
-            //         //console.log(user);
-            //         // ... user.uid
-            //         // set(ref(database, 'users/' + user.uid), {
-            //         //     email: email,
-            //         //     password: password,
-            //         //     alink: alink
-            //         // })
-            //         //     .then(() => {
-            //         //         // Data saved successfully!
-            //         //         alert('user created successfully');
-            //         //     })
-            //         //     .catch((error) => {
-            //         //         // The write failed...
-            //         //         alert(error);
-            //         //     });
-            //     })
-            //     .then(() => {
-            //                 // Data saved successfully!
-            //                 alert('user created successfully');
-            //     })
-            //     .catch((error) => {
-            //         const errorCode = error.code;
-            //         const errorMessage = error.message;
-            //         // ..
-            //         alert(errorMessage);
-            //     });
-
-            // }
-
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Signed in
-                    console.log("Hi");
-                    const user = userCredential.user;
-                    console.log(user);
-                    //console.log(user);
-                    // ... user.uid
-                    // set(ref(database, 'users/' + user.uid), {
-                    //     email: email,
-                    //     password: password,
-                    //     alink: alink
-                    // })
-                    //     .then(() => {
-                    //         // Data saved successfully!
-                    //         alert('user created successfully');
-                    //     })
-                    //     .catch((error) => {
-                    //         // The write failed...
-                    //         alert(error);
-                    //     });
-                })
-                .then(() => {
-                            // Data saved successfully!
-                            alert('user login successful!');
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    // ..
-                    alert(errorMessage);
-                });
-
-            app.auth().onAuthStateChanged(user =>{
-                if (user) {
-                    // User is signed in.
-                    console.log(user);
-                    // ...
-                } else {
-                    // User is signed out.
-                    // ...
-                }
-            });
+          // step 1: try doing this w/o error handling, and then add try/catch
+          signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            const dref =  set(ref(database, 'users/' + user.uid));
+            onValue(dref, (snapshot) => {
+            const data = snapshot.val();
+            console.log();
+          })
         });
+
+        //   // step 2: add error handling
+        //   try {
+        //     await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+        //   }
+        //   catch(error) {
+        //     console.log(`There was an error: ${error}`)
+        //     //showLoginError(error)
+        //     alert(error);
+        //   }
+        }
+
+        // Create new account using email/password
+        // const createAccount = async () => {
+        //   const email = txtEmail.value
+        //   const password = txtPassword.value
+
+        //   try {
+        //     await createUserWithEmailAndPassword(auth, email, password)
+        //   }
+        //   catch(error) {
+        //     console.log(`There was an error: ${error}`)
+        //     showLoginError(error)
+        //   } 
+        // }
+
+        // Monitor auth state
+        // const monitorAuthState = async () => {
+        //   onAuthStateChanged(auth, user => {
+        //     if (user) {
+        //       console.log(user)
+        //       //showApp()
+
+        //       // hideLoginError()
+        //       // hideLinkError()
+        //     }
+        //     else {
+        //       // showLoginForm()
+        //       // lblAuthState.innerHTML = `You're not logged in.`
+        //       alert("you aren't logged in");
+        //     }
+        //   })
+        // }
+
+        // Log out
+        // const logout = async () => {
+        //   await signOut(auth);
+        // }
+
+          submitData.addEventListener("click", loginEmailPassword)
+        //btnSignup.addEventListener("click", createAccount)
+        //btnLogout.addEventListener("click", logout)
+
+        //const auth = getAuth(app);
+        // connectAuthEmulator(auth, "http://localhost:9099");
+
+        //monitorAuthState();
 
     </script>
 </html>

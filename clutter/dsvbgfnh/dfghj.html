@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Responsive Regisration Form </title>--> 
+</head>
+<body>
+    <div class="container">
+        <header></header>
+
+        <form action="#">
+            <div class="rel-pos mdl-color--white" ng-attr-style="{{::moduleData.tConfiguration.outerHeaderStyles}}" style="z-index:999">   
+                 <div class="flexbox main-family align-items-center  flex-wrap-wrap  " style="margin:auto; box-sizing: border-box">   
+                       <!-- header_top : logo,secondary texts and links -->     
+                        <div style="min-width:0px" class="flex-grow-3 " id="header_navbar_top">     
+                             <div class="change-size margin-auto padding-lr-8">       
+                                 <div class="ellipsis-text flexbox flex-dir-row flex-dir-column-600 margin-tb-gt-xs-8 margin-tb-xs-4 ">         
+                                     <!-- This is college page and not almashines page -->          <!-- Case-1:  Logo+Name -->         
+                                      <a ui-sref="inapp.portfolio_od" class="align-self-center " style="text-decoration:none; ">          
+                                          <!-- ngIf: (college_logo != 0) --><img loading="lazy" class="" ng-attr-style="{{::moduleData.tConfiguration.logoStyles}}" ng-if="(college_logo != 0)" src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/institutes/logo/170x170/531.jpg?v=1597656027" style="max-height:75px; max-width:100%;"><!-- end ngIf: (college_logo != 0) -->          </a>        
+                                            <!-- ngIf: college_l_name !='AlmaShines' -->
+                                            <span ng-if="college_l_name !='AlmaShines'" ui-sref="inapp.portfolio_od" class="ng-scope"> 
+                                                  
+
+                                                <h1 class="mdl-cell--hide-tablet mdl-cell--hide-phone custom_name_hide cursor-pointer font-10 inline-block mdl-color-text--grey-900 padding-left-8"><b>Cummins College Alumni Association Pune</b></h1>           
+         <div ng-if="(college_logo != 0)" class="flexbox flex-dir-column flex-grow-3 margin-tb-8 align-self-center padding-lr-8" ng-attr-style="{{ ::moduleData.tConfiguration.middleDivParentStyles }}">           
+            <!-- ngIf: ::moduleData.tData.middle.value -->
+            </div>
+            
+            <div ng-if="(college_logo != 0)" class="flexbox flex-dir-column flex-grow-3 margin-tb-8 align-self-center padding-lr-8" ng-attr-style="{{ ::moduleData.tConfiguration.middleDivParentStyles }}">            <!-- ngIf: ::moduleData.tData.middle.value -->                      </div>
+            <button type="submit">SignUp/Login</button>
+            </div>
+            
+            
+            
+            
+            
+            
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Fill in the following details to verify you</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Enrollment Number/CNumber</label>
+                            <input type="text" placeholder="Enter your CNo." required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Role</label>
+                            <select required>
+                                <option disabled selected>Select role</option>
+                                <option>Current Student</option>
+                                <option>Alumni</option>
+                                
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Course/Degree</label>
+                            <select required>
+                                <option disabled selected>Select degree</option>
+                                <option>M.Tech</option>
+                                <option>B.Tech</option>
+                                <option>BE</option>
+                            
+                            </select>
+                        </div>
+                        <div class="input-field">
+
+                            <label>Year of Joining</label>
+                           
+                            <select required>
+                                <option disabled selected>Select year</option>
+                                <option value="1991">1991</option>
+            <option value="1992">1992</option>
+            <option value="1993">1993</option>
+            <option value="1994">1994</option>
+            <option value="1995">1995</option>
+            <option value="1996">1996</option>
+            <option value="1997">1997</option>
+            <option value="1998">1998</option>
+            <option value="1999">1999</option>
+            <option value="2000">2000</option>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+            <option value="2006">2006</option>
+            <option value="2007">2007</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+                                
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <label>Department</label>
+                            <select required>
+                                <option disabled selected>Select dept</option>
+                                <option>Computer Engineering</option>
+                                <option>IT Engineering</option>
+                                <option>Electronics & Telecommunications Engg</option>
+                                <option>Mechanucal Engineering</option>
+                                <option>Instrumentation & Control Engg</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                
+                <div class="input-field">
+                    <label>Graduation Year(Expected/Completed)</label>
+                    <select required>
+                    <option disabled selected>Select year</option>
+    
+    <option value="1995">1995</option>
+    <option value="1996">1996</option>
+    <option value="1997">1997</option>
+    <option value="1998">1998</option>
+    <option value="1999">1999</option>
+    <option value="2000">2000</option>
+    <option value="2001">2001</option>
+    <option value="2002">2002</option>
+    <option value="2003">2003</option>
+    <option value="2004">2004</option>
+    <option value="2005">2005</option>
+    <option value="2006">2006</option>
+    <option value="2007">2007</option>
+    <option value="2008">2008</option>
+    <option value="2009">2009</option>
+    <option value="2010">2010</option>
+    <option value="2011">2011</option>
+    <option value="2012">2012</option>
+    <option value="2013">2013</option>
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+    <option value="2020">2020</option>
+    <option value="2021">2021</option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+
+                    </select>
+                </div>
+                <div class="input-field">
+                            <label>Enter the Readme Player Avatar URL : </label>
+                            <input type="text" placeholder="Paste the URL." required>
+                        </div>
+                
+
+                    <button class="joinBtn">
+                        <span class="btnText">Join</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div> 
+            </div>
+
+            
+                    </div>
+                </div> 
+            </div>
+        </form>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+   
+        import {
+            getAuth,
+            createUserWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
+        import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
+
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIiY_lfzjTuhWQwLQt1SBSTMWE49Vi5Tc",
+            authDomain: "meetcummins.firebaseapp.com",
+            databaseURL: "https://meetcummins-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "meetcummins",
+            storageBucket: "meetcummins.appspot.com",
+            messagingSenderId: "497902985571",
+            appId: "1:497902985571:web:a7f968287880ecc66bf356",
+            measurementId: "G-NE60V44K1R"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const database = getDatabase(app);
+
+        var db = app.database().ref('users');
+
+        var newDetailsDB = db.push();
+        newDetailsDB.set({
+            name: name,
+            alink: alink,
+            email: email,
+            password: password,
+        })
+
+    </script>
+</body>
+</html>
+ 
