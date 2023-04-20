@@ -149,6 +149,7 @@ blockquote {
   color: var(--white-color);
   border-color: transparent;
   transition: all .3s ease;
+  width: 200px;
 }
 
 .custom-btn:hover,
