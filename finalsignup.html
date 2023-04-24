@@ -75,7 +75,7 @@
             <div class="containersign">
                 <div class="signup-content" style="margin-top: 0px; margin-bottom: 0px;">
                     <div class="signup-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title" style="font-size: 20px">Register and Login Here!</h2>
                         <form class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -120,12 +120,26 @@
                                 -ms-border-radius: 5px;
                                 margin-top: 25px;
                                 cursor: pointer;" type="button" id="submitData" name="submitData" class="registerbtn">Register</button>
+                                <button style="display: inline-block;
+                                border-color: #6dabe4;
+                                background: #6dabe4;
+                                color: #fff;
+                                border-bottom: none;
+                                width: auto;
+                                padding: 15px 39px;
+                                border-radius: 5px;
+                                -moz-border-radius: 5px;
+                                -webkit-border-radius: 5px;
+                                -o-border-radius: 5px;
+                                -ms-border-radius: 5px;
+                                margin-top: 25px;
+                                cursor: pointer;" type="button" id="loginBtn" name="loginBtn" class="registerbtn">Login</button>
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
                         <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="loginEx.html" class="signup-image-link">I am already member</a>
+                        <!-- <a href="loginEx.html" class="signup-image-link">I am already member</a> -->
                     </div>
                 </div>
             </div>
@@ -258,6 +272,7 @@
         import {
             getAuth,
             createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
             onAuthStateChanged,
             signOut
         } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
@@ -363,6 +378,7 @@
                     .then(() => {
                         // Data saved successfully!
                         alert('user created successfully');
+                        location.reload();
                     })
                     .catch((error) => {
                         const errorCode = error.code;
@@ -373,6 +389,102 @@
                 }
 
                 app.auth().onAuthStateChanged(user =>{
+                    if (user) {
+                        // User is signed in.
+                        console.log(user);
+                        // ...
+                    } else {
+                        // User is signed out.
+                        // ...
+                    }
+                 });
+
+            });  
+
+            
+            loginBtn.addEventListener('click',(e) => {
+
+            //console.log('validation ' + returnval);`
+
+                var email = document.getElementById('username').value;
+                console.log(email);
+                var password = document.getElementById('pass').value;
+                //var alink = document.getElementById('alink').value;
+
+                //sign up user
+                // createUserWithEmailAndPassword(auth, email, password)
+                //     .then((userCredential) => {
+                //         // Signed in
+                //         //console.log("Hi");
+                //         const user = userCredential.user;
+                //         console.log(userCredential.user);
+                //         //console.log(user);
+                //         // ... user.uid
+                //         // set(ref(database, 'users/' + user.uid), {
+                //         //     email: email,
+                //         //     password: password,
+                //         //     alink: alink
+                //         // })
+                //         //     .then(() => {
+                //         //         // Data saved successfully!
+                //         //         alert('user created successfully');
+                //         //     })
+                //         //     .catch((error) => {
+                //         //         // The write failed...
+                //         //         alert(error);
+                //         //     });
+                //     })
+                //     .then(() => {
+                //                 // Data saved successfully!
+                //                 alert('user created successfully');
+                //     })
+                //     .catch((error) => {
+                //         const errorCode = error.code;
+                //         const errorMessage = error.message;
+                //         // ..
+                //         alert(errorMessage);
+                //     });
+
+                // }
+
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Signed in
+                        console.log("Hi");
+                        const user = userCredential.user;
+                        console.log(user);
+                        //console.log(user);
+                        // ... user.uid
+                        // set(ref(database, 'users/' + user.uid), {
+                        //     email: email,
+                        //     password: password,
+                        //     alink: alink
+                        // })
+                        //     .then(() => {
+                        //         // Data saved successfully!
+                        //         alert('user created successfully');
+                        //     })
+                        //     .catch((error) => {
+                        //         // The write failed...
+                        //         alert(error);
+                        //     });
+                    })
+                    .then(() => {
+                                // Data saved successfully!
+                                alert('user login successful!');
+                                location.href = "C:/Users/HP/Documents/EK AARKHRI SEM/Project/Login System/Scratch/index.html";
+                                // function preventBack(){window.history.forward();}
+                                // setTimeout("preventBack()", 0);
+                                // window.onunload=function(){null};
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        // ..
+                        alert(errorMessage);
+                    });
+
+            app.auth().onAuthStateChanged(user =>{
                 if (user) {
                     // User is signed in.
                     console.log(user);
@@ -382,8 +494,7 @@
                     // ...
                 }
             });
-
-            });  
+    });
 
       </script>
 

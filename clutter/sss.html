@@ -134,6 +134,20 @@
                                 -ms-border-radius: 5px;
                                 margin-top: 25px;
                                 cursor: pointer;" type="button" id="loginBtn" name="loginBtn" class="registerbtn">Login</button>
+                                 <button style="display: inline-block;
+                                 border-color: #6dabe4;
+                                 background: #6dabe4;
+                                 color: #fff;
+                                 border-bottom: none;
+                                 width: auto;
+                                 padding: 15px 39px;
+                                 border-radius: 5px;
+                                 -moz-border-radius: 5px;
+                                 -webkit-border-radius: 5px;
+                                 -o-border-radius: 5px;
+                                 -ms-border-radius: 5px;
+                                 margin-top: 25px;
+                                 cursor: pointer;" type="button" id="logoutBtn" name="loginBtn" class="registerbtn">Logout</button>
                             </div>
                         </form>
                     </div>
@@ -503,6 +517,10 @@
                         .then(() => {
                                     // Data saved successfully!
                                     alert('user login successful!');
+                                    // location.href = "C:/Users/HP/Documents/EK AARKHRI SEM/Project/Login System/Scratch/index.html";
+                                    // function preventBack(){window.history.forward();}
+                                    // setTimeout("preventBack()", 0);
+                                    // window.onunload=function(){null};
                         })
                         .catch((error) => {
                             const errorCode = error.code;
@@ -522,6 +540,73 @@
                     }
                 });
             });
+
+
+            // logoutBtn.addEventListener('click',(e) => {
+
+            // //console.log('validation ' + returnval);
+
+            //     // var email = document.getElementById('username').value;
+            //     // console.log(email);
+            //     // var password = document.getElementById('pass').value;
+            //     //var alink = document.getElementById('alink').value;
+
+            //     //sign up user
+            //     // createUserWithEmailAndPassword(auth, email, password)
+            //     //     .then((userCredential) => {
+            //     //         // Signed in
+            //     //         //console.log("Hi");
+            //     //         const user = userCredential.user;
+            //     //         console.log(userCredential.user);
+            //     //         //console.log(user);
+            //     //         // ... user.uid
+            //     //         // set(ref(database, 'users/' + user.uid), {
+            //     //         //     email: email,
+            //     //         //     password: password,
+            //     //         //     alink: alink
+            //     //         // })
+            //     //         //     .then(() => {
+            //     //         //         // Data saved successfully!
+            //     //         //         alert('user created successfully');
+            //     //         //     })
+            //     //         //     .catch((error) => {
+            //     //         //         // The write failed...
+            //     //         //         alert(error);
+            //     //         //     });
+            //     //     })
+            //     //     .then(() => {
+            //     //                 // Data saved successfully!
+            //     //                 alert('user created successfully');
+            //     //     })
+            //     //     .catch((error) => {
+            //     //         const errorCode = error.code;
+            //     //         const errorMessage = error.message;
+            //     //         // ..
+            //     //         alert(errorMessage);
+            //     //     });
+
+            //     // }
+
+            //     signOut(auth).then(() => {
+            //         // Sign-out successful.
+            //         alert('Logout Done!');
+            //         console.log(user);
+            //         }).catch((error) => {
+            //         // An error happened.
+            //         });
+
+
+            //     app.auth().onAuthStateChanged(user =>{
+            //         if (user) {
+            //             // User is signed in.
+            //             console.log(user);
+            //             // ...
+            //         } else {
+            //             // User is signed out.
+            //             // ...
+            //         }
+            //     });
+            // });
 
       </script>
 

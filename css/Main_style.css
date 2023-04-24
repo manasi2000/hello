@@ -145,11 +145,21 @@ blockquote {
 }
 
 .custom-btn.btn-bg {
+  background: var(--white-color);
+  color: var(--primary-color);
+  border-color: transparent;
+  transition: all .3s ease;
+}
+
+.custom1-btn.btn-bg {
   background: var(--primary-color);
   color: var(--white-color);
   border-color: transparent;
   transition: all .3s ease;
   width: 200px;
+  height: 45px;
+  vertical-align: middle;
+  border-radius: 30px;
 }
 
 .custom-btn:hover,
@@ -157,7 +167,7 @@ blockquote {
   background: var(--dark-color);
   color: var(--white-color);
   border-color: transparent;
-}
+}  
 
 
 .center {

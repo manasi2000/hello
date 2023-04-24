@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +21,11 @@
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="css/Main_style.css">
      <script type="text/javascript">
-          function preventBack() { window.history.forward(); }
-          setTimeout("preventBack()", 0);
-          window.onunload = function () { null };
-      </script>
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+
 </head>
 <body>
 
@@ -67,7 +69,7 @@
 
                     </li>
                     <li class="nav-item">
-                         <button style="background-color: #3859BC" id="logoutBtn" class="nav-link contact">Logout</button>
+                         <a href="finalsignup.html" class="nav-link contact">Sign Up</a>
                     </li>
                 </ul>
             </div>
@@ -85,7 +87,7 @@
 
                                    <h1 class="text-white" data-aos="fade-up">Here's your chance to visit cummins virtually<br>
 
-                                   <!-- <a href="loginEx.html" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Enter the Metaverse!</a> -->
+                                   <a href="loginEx.html" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">Enter the Metaverse!</a>
                               </div>
                         </div>
 
@@ -100,29 +102,10 @@
                </div>
      </section>
 
-     <!-- Enter the metaverse -->
-     <section style="background-color: #ffffff;">
-          <div class="center">
-               <div id="social-test">
-                    <h3 style="text-align: center; margin-bottom: 2%;">Enter the Metaverse!</h3>
-               <ul class="social">
-                 <li><a href="loginEx.html" class="custom1-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">T&P CELL</a></li>
-                 <li><a href="loginEx.html" class="custom1-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">ART EXHIBITION</a></li>
-                 <li><a href="loginEx.html" class="custom1-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">IT BUILDING</a></li>
-                 <!-- <li><a href="https://www.youtube.com/c/Colorlib"><i class="fa fa-youtube" aria-hidden="true"></a></i></li>
-                 <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-                 <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></a></i></li>
-                 <li><a href="https://github.com/puikinsh"><i class="fa fa-github" aria-hidden="true"></a></i></li> -->
-               </li>
-               </ul>
-               </div>
-             </div>
-        </section>
 
-     <!-- SignUp Guide -->
+     <!-- Monitization -->
      <section class="testimonial section-padding">
           <h3 style="text-align: center; margin-bottom: 2%;">Get started here!</h3>
-          <div class="center">
           <div class="container">
                <div class="row">
                     
@@ -145,7 +128,6 @@
 
                </div>
           </div>
-     </div>
      </section>
 
      <!-- ABOUT -->
@@ -357,108 +339,6 @@
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
-
-     <script type="module">
-          // Import the functions you need from the SDKs you need
-          import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-          
-          import {
-               getAuth,
-               createUserWithEmailAndPassword,
-               signInWithEmailAndPassword,
-               onAuthStateChanged,
-               signOut
-          } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-auth.js";
-          import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js";
-
-
-          // TODO: Add SDKs for Firebase products that you want to use
-          // https://firebase.google.com/docs/web/setup#available-libraries
-
-          // Your web app's Firebase configuration
-          const firebaseConfig = {
-               apiKey: "AIzaSyBIiY_lfzjTuhWQwLQt1SBSTMWE49Vi5Tc",
-               authDomain: "meetcummins.firebaseapp.com",
-               projectId: "meetcummins",
-               storageBucket: "meetcummins.appspot.com",
-               messagingSenderId: "497902985571",
-               appId: "1:497902985571:web:a7f968287880ecc66bf356",
-               measurementId: "G-NE60V44K1R"
-          };
-
-          // Initialize Firebase
-          const app = initializeApp(firebaseConfig);
-          const auth = getAuth();
-          const database = getDatabase(app);
-
-          logoutBtn.addEventListener('click',(e) => {
-
-               //console.log('validation ' + returnval);
-
-               // var email = document.getElementById('username').value;
-               // console.log(email);
-               // var password = document.getElementById('pass').value;
-               //var alink = document.getElementById('alink').value;
-
-               //sign up user
-               // createUserWithEmailAndPassword(auth, email, password)
-               //     .then((userCredential) => {
-               //         // Signed in
-               //         //console.log("Hi");
-               //         const user = userCredential.user;
-               //         console.log(userCredential.user);
-               //         //console.log(user);
-               //         // ... user.uid
-               //         // set(ref(database, 'users/' + user.uid), {
-               //         //     email: email,
-               //         //     password: password,
-               //         //     alink: alink
-               //         // })
-               //         //     .then(() => {
-               //         //         // Data saved successfully!
-               //         //         alert('user created successfully');
-               //         //     })
-               //         //     .catch((error) => {
-               //         //         // The write failed...
-               //         //         alert(error);
-               //         //     });
-               //     })
-               //     .then(() => {
-               //                 // Data saved successfully!
-               //                 alert('user created successfully');
-               //     })
-               //     .catch((error) => {
-               //         const errorCode = error.code;
-               //         const errorMessage = error.message;
-               //         // ..
-               //         alert(errorMessage);
-               //     });
-
-               // }
-
-               signOut(auth).then(() => {
-                    // Sign-out successful.
-                    alert('Logout Done!');
-                    location.href = "home.html";
-                    console.log(user);
-               }).catch((error) => {
-                    // An error happened.
-               });
-
-
-               app.auth().onAuthStateChanged(user =>{
-                    if (user) {
-                         // User is signed in.
-                         console.log(user);
-                         // ...
-                    } else {
-                         // User is signed out.
-                         // ...
-                    }
-               });
-          });
-     
-     </script>
 
 </body>
 </html>
